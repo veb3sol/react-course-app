@@ -12,17 +12,17 @@ function App() {
         {
           date: new Date(2024, 2, 15),
           description : 'Холодильничек',
-          amount : 777.55,
+          amount : 500,
         },
         {
           date: new Date(2024, 5, 1),
           description : 'Телевизор',
-          amount : 777.55,
+          amount : 400,
         },
         {
           date: new Date(2024, 7, 18),
           description : 'Джинсы',
-          amount : 777.55,
+          amount : 300,
         },
 
       ]
