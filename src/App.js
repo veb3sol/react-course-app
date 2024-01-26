@@ -24,7 +24,6 @@ function App() {
           description : 'Джинсы',
           amount : 300,
         },
-
       ]
   return (
     <div>
@@ -34,5 +33,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
