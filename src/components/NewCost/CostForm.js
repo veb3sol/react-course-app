@@ -2,22 +2,59 @@ import React, {useState} from 'react'
 import './CostForm.css'
 
 const CostForm = () => {
-    const [name, setName] = useState('')
-    const [sum, setSum] = useState('')
-    const [data, setData] = useState('')
 
+    // вариант когда используем 3 состояния
+    
+    const [inputName, setInputName] = useState('')
+    const [inputSum, setInputSum] = useState('')
+    const [inputData, setInputData] = useState('')
+
+
+    // вариант использования 1 состояния
+    // const [userInput, setUserInput] = useState({
+    //     name: '',
+    //     sum: '',
+    //     data: ''
+    // })
+
+    
     const nameChangeHandler = (event) => {
         // console.log(event) -- много инфы о вводимой в инпут информации
-        //console.log(event.target.value) // то что сейчас в поле
-        setName(event.target.value) // для сохранения данніх в стейте
+        // console.log(event.target.value) // то что сейчас в поле
+        setInputName(event.target.value) // для сохранения данніх в стейте
+        
+        // setUserInput({
+        //     ...userInput,        //перезаписать старые данные
+        //     name: event.target.value,       // обновить это поле
+        // })
     }
     const sumChangeHandler = (event) => {
-        setSum(event.target.value)
+        setInputSum(event.target.value)
+        // setInputSum((previusState) => {
+        //     return {
+        //         ...previusState,
+        //         name: event.target.value
+        //     }
+        // })
+        
     }
     const dataChangeHandler = (event) => {
-        setData(event.target.value)
+        setInputData(event.target.value)
     }
-    return <form>
+
+    const submitHandler = (event) => {
+        event.preventDefault()
+        // создаем обьект с текущими данными с полей
+        const costData = {
+            name: inputName,
+            sum: inputSum,
+            data: new Date(inputData) 
+        } 
+
+        console.log(costData)
+    }
+    
+    return <form onSubmit={submitHandler}>
         <div className="new-cost__controls">
             <div className="new-cost__control">
                 <label>Название</label>
@@ -32,7 +69,7 @@ const CostForm = () => {
                 <input type="date" min='2024-01-03' max='20204-12-31' onChange={dataChangeHandler}/>
             </div>
             <div className="new-cost__actions">
-                <button>Добавить расход</button>
+                <button type='submit'>Добавить расход</button>
             </div>
         </div>
     </form>
