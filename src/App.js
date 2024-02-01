@@ -1,4 +1,5 @@
 import Costs from "./components/Costs/Costs";
+import NewCost from "./components/NewCost/NewCost";
 
 function App() {
   // создаем обьект даты
@@ -26,8 +27,7 @@ function App() {
   ];
   return (
     <div>
-      <h1>Начнем изучение React</h1>
-      <p>Всем привет!</p>
+      <NewCost/>
       <Costs costs={costs} />
     </div>
   );
