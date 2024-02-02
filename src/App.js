@@ -25,9 +25,15 @@ function App() {
       amount: 300,
     },
   ];
+
+  const addCostHandler = (cost) => {
+    console.log(cost)
+    console.log('Appppppp')
+  }
+
   return (
     <div>
-      <NewCost/>
+      <NewCost onAddCost={addCostHandler}/>
       <Costs costs={costs} />
     </div>
   );
