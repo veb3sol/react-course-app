@@ -22,9 +22,9 @@ const CostForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault()
         const costData = {
-            name: inputName,
-            sum: inputSum,
-            data: new Date(inputData) 
+            description: inputName,
+            amount: inputSum,
+            date: new Date(inputData) 
         } 
 
         // запускаем функцию сохранения донных полученую от родителя

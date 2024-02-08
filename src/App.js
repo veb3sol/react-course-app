@@ -1,40 +1,45 @@
+import { useState } from "react";
 import Costs from "./components/Costs/Costs";
 import NewCost from "./components/NewCost/NewCost";
 
+const INITIAL_COST = [
+  {
+    id:1,
+    date: new Date(2024, 2, 15),
+    description: "Холодильничек",
+    amount: 500,
+  },
+  {
+    id:2,
+    date: new Date(2024, 5, 1),
+    description: "Телевизор",
+    amount: 400,
+  },
+  {
+    id:3,
+    date: new Date(2024, 7, 18),
+    description: "Джинсы",
+    amount: 300,
+  },
+];
+
 function App() {
-  // создаем обьект даты
-  // const costDate = new Date(2024, 2, 15)
 
-  // const costDescription = 'Холодильничек'
-  // const costAmount = 777.55
-
-  const costs = [
-    {
-      date: new Date(2024, 2, 15),
-      description: "Холодильничек",
-      amount: 500,
-    },
-    {
-      date: new Date(2024, 5, 1),
-      description: "Телевизор",
-      amount: 400,
-    },
-    {
-      date: new Date(2024, 7, 18),
-      description: "Джинсы",
-      amount: 300,
-    },
-  ];
+  const [costik, setCost] = useState(INITIAL_COST)
 
   const addCostHandler = (cost) => {
-    console.log(cost)
-    console.log('Appppppp')
+    cost.id = costik.length + 1
+    // setCost([cost, ...costik])  --- неправильно!!!
+    
+    setCost( prevCost => {         // prevCost - предыдущее состояние
+      return[cost, ...prevCost]
+    });
   }
 
   return (
     <div>
       <NewCost onAddCost={addCostHandler}/>
-      <Costs costs={costs} />
+      <Costs costs={costik} />
     </div>
   );
 }

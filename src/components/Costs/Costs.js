@@ -5,6 +5,7 @@ import "./Costs.css";
 import { useState } from "react";
 
 function Costs(props) {
+  
   const years = {
     y: 2021
   }
@@ -18,21 +19,18 @@ function Costs(props) {
     
       <Card className="costs">
         <CostsFilter onChangeYear={onChangeYear} year={myYear}/>
-      <CostItem
-        date={props.costs[0].date}
-        description={props.costs[0].description}
-        amount={props.costs[0].amount}
-      />
-      <CostItem
-        date={props.costs[1].date}
-        description={props.costs[1].description}
-        amount={props.costs[1].amount}
-      />
-      <CostItem
-        date={props.costs[2].date}
-        description={props.costs[2].description}
-        amount={props.costs[2].amount}
-      />
+        {props.costs.map(cost => {
+          console.log(cost.id)
+          return (<CostItem
+                                  key={cost.id}
+                                  date={cost.date}
+                                  description={cost.description}
+                                  amount={cost.amount}
+                  />)})}
+
+        
+      
+     
     </Card>
     
     
