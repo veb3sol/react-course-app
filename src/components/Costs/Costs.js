@@ -15,11 +15,14 @@ function Costs(props) {
     years.y = year
     console.log(years)
   }
+  const yearCosts = props.costs.filter(cost => cost.date.getFullYear() === +myYear)
+
+
   return (
     
       <Card className="costs">
         <CostsFilter onChangeYear={onChangeYear} year={myYear}/>
-        {props.costs.map(cost => {
+        {yearCosts.map(cost => {
           console.log(cost.id)
           return (<CostItem
                                   key={cost.id}
