@@ -3,11 +3,13 @@ import './CostForm.css'
 
 const CostForm = (props) => {
 
+
     // вариант когда используем 3 состояния
     
     const [inputName, setInputName] = useState('')
     const [inputSum, setInputSum] = useState('')
     const [inputData, setInputData] = useState('')
+    const [inputSeeForm, setInputSeeForm] = useState(false)
 
     const nameChangeHandler = (event) => {
         setInputName(event.target.value) 
@@ -37,7 +39,26 @@ const CostForm = (props) => {
         setInputName('')
         setInputSum('')
         setInputData('')
+
+        setInputSeeForm(false)
     }
+
+    const CancelClick = ()=> {
+        setInputSeeForm(false)
+    }
+    const seeForm = ()=> {
+        setInputSeeForm(true)
+    }
+
+    if(!inputSeeForm){
+        return  <div className="new-cost__controls">
+        <div className="new-cost__actions">
+            <button type='submit' onClick={seeForm}>Заполнить форму</button>
+        </div>
+    </div>
+    }
+
+
     
     return <form onSubmit={submitHandler}>
         <div className="new-cost__controls">
@@ -55,6 +76,7 @@ const CostForm = (props) => {
             </div>
             <div className="new-cost__actions">
                 <button type='submit'>Добавить расход</button>
+                <button type='cencel' onClick={CancelClick}>Отмена</button>
             </div>
         </div>
     </form>
