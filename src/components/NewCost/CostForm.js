@@ -72,7 +72,7 @@ const CostForm = (props) => {
             </div>
             <div className="new-cost__control">
                 <label>Дата</label>
-                <input type="date" min='2022-01-03' max='2026-12-31' value={inputData} onChange={dataChangeHandler}/>
+                <input type="date" min='2022-01-03' max='2025-12-31' value={inputData} onChange={dataChangeHandler}/>
             </div>
             <div className="new-cost__actions">
                 <button type='submit'>Добавить расход</button>
